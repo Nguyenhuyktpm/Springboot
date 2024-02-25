@@ -1,4 +1,4 @@
-package com.NQH.Service;
+package com.NQH.Service.Impliments;
 
 import java.util.Optional;
 
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class UserService implements UserDetailsService{
+public class UserServiceImpl implements UserDetailsService{
 	private final UserRepository userRepository;
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

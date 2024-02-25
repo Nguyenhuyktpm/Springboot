@@ -1,5 +1,7 @@
 package com.NQH.Controller;
 
+import java.util.List;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -9,15 +11,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.NQH.Entity.CustomUserDetail;
+import com.NQH.Entity.UserEntity;
 import com.NQH.Jwt.JwtTokenProvider;
 import com.NQH.Payload.LoginRequest;
 import com.NQH.Payload.LoginResponse;
+import com.NQH.Service.UserMananagerService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class UserController {
-	
+	private final UserMananagerService userManagerService;
 	private final AuthenticationManager authenticationManager;
 	private final JwtTokenProvider tokenProvider;
 	
@@ -43,5 +47,9 @@ public class UserController {
         return new LoginResponse(jwt);
     }
 	
-	
+	 @GetMapping("user")
+	 public List<UserEntity> user(){
+		 
+		 return userManagerService.getAllUser();
+	 }
 }

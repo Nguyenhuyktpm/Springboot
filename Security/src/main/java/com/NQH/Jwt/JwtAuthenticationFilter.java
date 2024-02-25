@@ -2,34 +2,29 @@ package com.NQH.Jwt;
 
 import java.io.IOException;
 
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
-import org.springframework.util.StreamUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.NQH.Service.UserService;
+import com.NQH.Service.Impliments.UserServiceImpl;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RequiredArgsConstructor
 
-public class JwtAuthenticationFilter extends OncePerRequestFilter {
+
+public class JwtAuthenticationFilter extends OncePerRequestFilter{
     
     private final JwtTokenProvider tokenProvider;
-
-    
-    private final UserService customUserDetailsService;
+    private final UserServiceImpl customUserDetailsService;
     
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -56,8 +51,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         } catch (Exception ex) {
             log.error("failed on set user authentication", ex);
         }
-
-        filterChain.doFilter(request, response);
+        filterChain.doFilter(request,response);
     }
 
     private String getJwtFromRequest(HttpServletRequest request) {
