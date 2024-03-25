@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.BeanIds;
 import com.NQH.Jwt.JwtAuthenticationFilter;
 import com.NQH.Jwt.JwtTokenProvider;
@@ -19,7 +18,7 @@ import com.NQH.Service.Impliments.UserServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
-@Configuration
+
 @RequiredArgsConstructor
 @EnableWebSecurity
 public class Config extends WebSecurityConfigurerAdapter {
@@ -30,7 +29,6 @@ public class Config extends WebSecurityConfigurerAdapter {
 	public JwtAuthenticationFilter jwtAuthenticationFilter() {
 		return new JwtAuthenticationFilter(tokenProvider, userServiceImpl);
 	}
-
 	@Bean(BeanIds.AUTHENTICATION_MANAGER)
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -60,5 +58,4 @@ public class Config extends WebSecurityConfigurerAdapter {
 				// Thêm một lớp Filter kiểm tra jwt
 		// http.addFilterBefore( jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
-
 }

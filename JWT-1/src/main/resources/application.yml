@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: JWT-1
+  Datasource:
+    url: "jdbc:mysql://localhost:3301/jwt"
+    username: root
+    password: 08112001
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    
+
+server: 
+  port: 8080
+  servlet:
+    context-path: /jwt

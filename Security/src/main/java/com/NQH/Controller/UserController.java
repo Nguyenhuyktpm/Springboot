@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.NQH.Entity.CustomUserDetail;
 import com.NQH.Entity.UserEntity;
@@ -18,7 +19,7 @@ import com.NQH.Payload.LoginResponse;
 import com.NQH.Service.UserMananagerService;
 
 import lombok.RequiredArgsConstructor;
-
+@RestController
 @RequiredArgsConstructor
 public class UserController {
 	private final UserMananagerService userManagerService;

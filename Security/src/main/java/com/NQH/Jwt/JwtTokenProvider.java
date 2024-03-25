@@ -18,7 +18,7 @@ public class JwtTokenProvider {
 	
 	private final long JWT_EXPIRATION = 6000000L;
 	
-	//Taoj jwt tuwf user:
+	//Tao jwt tuwf user:
 	public String generateToken(CustomUserDetail userDetails) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + JWT_EXPIRATION);

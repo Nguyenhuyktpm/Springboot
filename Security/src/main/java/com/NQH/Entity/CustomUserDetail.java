@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @AllArgsConstructor
-
 public class CustomUserDetail implements UserDetails {
 	
 	UserEntity user ;
